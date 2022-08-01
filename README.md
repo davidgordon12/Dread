@@ -4,4 +4,4 @@
 ## Goals
 - To get better writing low-level code with Rust
 - Broaden my skills as a developer
-- Learn the fundamentals how terminals really work and what they do
+- Learn the fundamentals how terminals / shells really work and what they do
