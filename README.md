@@ -1,5 +1,5 @@
 <h1 align="center"> Dread </h1>
-<h2 align="center"> An experimental terminal emulator written in rust </h2>
+<h2 align="center"> An experimental terminal shell written in rust </h2>
 
 ## Goals
 - To get better writing low-level code with Rust
