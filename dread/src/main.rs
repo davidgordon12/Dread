@@ -21,12 +21,7 @@ fn main() {
 
         match _command {
             "cd" => {
-                let path = &input[3..].trim();
-                println!("{}", path);
-                let root = Path::new(path);
-                if let Err(e) = env::set_current_dir(&root) {
-                    eprintln!("{}", e);
-                } 
+                 change_directory(&input);
             },
             _command => {
                 let mut process = Command::new("powershell")
@@ -37,5 +32,13 @@ fn main() {
                 let _result = process.wait().unwrap();
             }
         }
+    }
+}
+
+fn change_directory(input: &str) {
+    let path = &input[3..].trim();
+    let root = Path::new(path);
+    if let Err(e) = env::set_current_dir(&root) {
+        eprintln!("{}", e);
     }
 }
