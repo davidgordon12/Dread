@@ -1,5 +1,5 @@
 <h1 align="center"> Dread </h1>
-<p> An experimental shell written in rust </p>
+<p align="center"> An experimental shell written in rust </p>
 
 <h4> Project Goals </h4>
 <ul>
