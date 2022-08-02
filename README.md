@@ -1,3 +1,4 @@
-<h1 align="center> Dread ![1c965c4b7d18738a724f735aaa1e8603](https://user-images.githubusercontent.com/44374315/182278030-2f268ed2-9fad-40c9-8868-901e7af4e529.png)
-</h1>
+<h1 align="center> Dread ![1](https://user-images.githubusercontent.com/44374315/182278080-2269edb5-5bfe-4bf7-97ab-2d200e8c165c.png) </h1>
+
+
 An experimental terminal shell written in rust
