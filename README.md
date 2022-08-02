@@ -1,9 +1,8 @@
 <h1 align="center"> Dread </h1>
-<h2 align="center"> An experimental terminal shell written in rust </h2>
+<p align="center"> An experimental shell written in rust </p>
 
-<h3> If a linking error occurs, delete the target folder and rebuild </h3>
-
-## Goals
-- To get better writing low-level code with Rust
-- Broaden my skills as a developer
-- Learn the fundamentals how terminals / shells really work and what they do
+<h3> Project Goals </h3>
+<ul>
+  <li> Learn a low-level programming language like Rust </li>
+  <li> Become more familiar with how terminals / shells work</li>
+ </ul>
