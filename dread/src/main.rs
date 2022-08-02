@@ -21,14 +21,15 @@ fn main() {
 
         match _command {
             "cd" => {
-                let new_dir = args.peekable().peek().map_or("/", |x| *x);
-                let root = Path::new(new_dir);
+                let path = &input[3..].trim();
+                println!("{}", path);
+                let root = Path::new(path);
                 if let Err(e) = env::set_current_dir(&root) {
                     eprintln!("{}", e);
                 } 
             },
             _command => {
-                let mut process = Command::new(_command)
+                let mut process = Command::new("powershell")
                     .args(args)
                     .spawn()
                     .unwrap();
