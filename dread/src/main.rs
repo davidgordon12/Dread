@@ -11,9 +11,9 @@ use whoami;
 static VERSION: f32 = 1.0;
 
 fn main() {
+    println!(" DREAD - Version {:.1}", VERSION);
     loop {
         print_header();
-        
         if let Event::Key(event) = event::read().expect("Error reading key") {
             match event {
                 KeyEvent {
