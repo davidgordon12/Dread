@@ -7,4 +7,3 @@ edition = "2021"
 
 [dependencies]
 whoami = "1.2.1"
-crossterm = "0.21.0"

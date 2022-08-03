@@ -14,43 +14,33 @@ fn main() {
     println!(" DREAD - Version {:.1}", VERSION);
     loop {
         print_header();
-        if let Event::Key(event) = event::read().expect("Error reading key") {
-            match event {
-                KeyEvent {
-                    code: KeyCode::Char('q'),
-                    modifiers: event::KeyModifiers::CONTROL,
-                } => break,
-                _ => {
-                    let mut input = String::new();
-                    stdin().read_line(&mut input).unwrap();
-                    
-                    let _command = input.trim().split_whitespace().next().unwrap();
-                    let args = input.trim().split_whitespace();
 
+        let mut input = String::new();
+        stdin().read_line(&mut input).unwrap();
         
-                    match _command {
-                        "cd" => {
-                            change_directory(&input);
-                        },
-                        _command => {
-                            if cfg!(target_os = "windows"){
-                                let mut process = Command::new("powershell")
-                                    .args(args)
-                                    .spawn()
-                                    .unwrap();
-                                let _result = process.wait().unwrap();
-                            } else {
-                                let mut process = Command::new("sh")
-                                    .args(args)
-                                    .spawn()
-                                    .unwrap();
-                                let _result = process.wait().unwrap();
-                            }
-                        }
-                    }
+        let _command = input.trim().split_whitespace().next().unwrap();
+        let args = input.trim().split_whitespace();
+        
+        
+        match _command {
+            "cd" => {
+                change_directory(&input);
+            },
+            _command => {
+                if cfg!(target_os = "windows"){
+                    let mut process = Command::new("powershell")
+                        .args(args)
+                        .spawn()
+                        .unwrap();
+                    let _result = process.wait().unwrap();
+                } else {
+                    let mut process = Command::new("sh")
+                        .args(args)
+                        .spawn()
+                        .unwrap();
+                    let _result = process.wait().unwrap();
                 }
             }
-            println!("{:?}", event);
         }
     }
 }
