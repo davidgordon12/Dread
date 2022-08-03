@@ -10,9 +10,9 @@
 
 <h3> Roadmap </h3> 
 <ul>
-  <li> ~~ Get basic shell working ~~ </li>
-  <li> ~~ Allow arguments ~~ </li>
-  <li> ~~  Linux / macOS compatibility ~~ </li>
+  <li> <del> Get basic shell working </del> </li>
+  <li> <del> Allow arguments </del> </li>
+  <li> <del> Linux / macOS compatibility </del> </li>
   <li> Pipes </li>
   <li> Error handling </li>
   <li> Quality of life features </li>
