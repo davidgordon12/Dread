@@ -1,6 +1,6 @@
 <h1 align="center"> Dread </h1>
 
-<img src="https://user-images.githubusercontent.com/44374315/182508709-1f4d655f-631e-4676-93a1-32260d43ec10.png" />
+<img align="center" src="https://user-images.githubusercontent.com/44374315/182508709-1f4d655f-631e-4676-93a1-32260d43ec10.png" />
 
 <p align="center"> An experimental shell written in rust </p>
 
