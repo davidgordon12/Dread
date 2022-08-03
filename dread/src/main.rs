@@ -1,5 +1,6 @@
+use crossterm::event::{Event, KeyCode, KeyEvent};
+use crossterm::{event, terminal};
 use std::process::Command;
-use chrono::Datelike;
 use std::path::Path;
 use std::io::stdout;
 use std::io::stdin;
@@ -13,31 +14,43 @@ fn main() {
     loop {
         print_header();
         
-        let mut input = String::new();
-        stdin().read_line(&mut input).unwrap();
+        if let Event::Key(event) = event::read().expect("Error reading key") {
+            match event {
+                KeyEvent {
+                    code: KeyCode::Char('q'),
+                    modifiers: event::KeyModifiers::CONTROL,
+                } => break,
+                _ => {
+                    let mut input = String::new();
+                    stdin().read_line(&mut input).unwrap();
+                    
+                    let _command = input.trim().split_whitespace().next().unwrap();
+                    let args = input.trim().split_whitespace();
+
         
-        let _command = input.trim().split_whitespace().next().unwrap();
-        let args = input.trim().split_whitespace();
-        
-        match _command {
-            "cd" => {
-                 change_directory(&input);
-            },
-            _command => {
-                if cfg!(target_os = "windows"){
-                    let mut process = Command::new("powershell")
-                        .args(args)
-                        .spawn()
-                        .unwrap();
-                    let _result = process.wait().unwrap();
-                } else {
-                    let mut process = Command::new("sh")
-                        .args(args)
-                        .spawn()
-                        .unwrap();
-                    let _result = process.wait().unwrap();
+                    match _command {
+                        "cd" => {
+                            change_directory(&input);
+                        },
+                        _command => {
+                            if cfg!(target_os = "windows"){
+                                let mut process = Command::new("powershell")
+                                    .args(args)
+                                    .spawn()
+                                    .unwrap();
+                                let _result = process.wait().unwrap();
+                            } else {
+                                let mut process = Command::new("sh")
+                                    .args(args)
+                                    .spawn()
+                                    .unwrap();
+                                let _result = process.wait().unwrap();
+                            }
+                        }
+                    }
                 }
             }
+            println!("{:?}", event);
         }
     }
 }
@@ -57,7 +70,6 @@ fn get_directory() -> std::io::Result<()> {
 }
 
 fn print_header() {
-    let localTime = chrono::offset::Local::now(); 
     print!(" {0} at ", whoami::username());
     get_directory();
     print!(" > ");
