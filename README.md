@@ -16,4 +16,6 @@
   <li> Pipes </li>
   <li> Error handling </li>
   <li> Quality of life features </li>
+  <li> Optimization (currently very slow) </li>
+  <li> Custom terminal emulator? </li>
  </ul>
