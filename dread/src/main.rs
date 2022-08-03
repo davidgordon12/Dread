@@ -1,21 +1,18 @@
-use std::io::stdin;
-use std::io::stdout;
-use std::io::Write;
-use std::path::Path;
 use std::process::Command;
+use chrono::Datelike;
+use std::path::Path;
+use std::io::stdout;
+use std::io::stdin;
+use std::io::Write;
 use std::env;
 use whoami;
 
 static VERSION: f32 = 1.0;
 
 fn main() {
-    println!("Dread - Version {:.1}", VERSION);
     loop {
-        print!(" {} at ", whoami::username());
-        get_directory();
-        print!(" > ");
-        let _buffer = stdout().flush();
-
+        print_header();
+        
         let mut input = String::new();
         stdin().read_line(&mut input).unwrap();
         
@@ -57,4 +54,12 @@ fn get_directory() -> std::io::Result<()> {
     let path = env::current_dir()?;
     println!("{}", path.display());
     Ok(())
+}
+
+fn print_header() {
+    let localTime = chrono::offset::Local::now(); 
+    print!(" {0} at ", whoami::username());
+    get_directory();
+    print!(" > ");
+    let _buffer = stdout().flush();
 }
