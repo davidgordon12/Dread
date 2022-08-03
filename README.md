@@ -1,5 +1,4 @@
 <h1 align="center"> Dread </h1>
-![dread](https://user-images.githubusercontent.com/44374315/182507738-c2d2c178-8aa7-4fc1-9f0c-ffb5a59c68b1.png)
 
 <p align="center"> An experimental shell written in rust </p>
 
