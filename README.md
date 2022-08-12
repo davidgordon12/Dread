@@ -1,4 +1,4 @@
-<h1 align="center"> Dread <br> <br></h1>
+<h1 align="center"> Dread <br> </h1>
 
 <p align="center"> An experimental shell written in rust </p>
 
